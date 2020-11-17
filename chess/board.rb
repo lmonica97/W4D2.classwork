@@ -1,14 +1,17 @@
 require_relative "piece"
+require_relative "null_piece"
 class Board
-    # def self.create_board
-    #     @rows = Array.new(8) {Array.new(8)}
-    #     @null_piece = NullPiece
-    # end
+    def self.create_board
+        @rows = Array.new(8) {Array.new(8)}
+        @null_piece = NullPiece.instance
+    end
     attr_reader :board, :rows, :null_piece
     def initialize
-        @rows = Array.new(8) {Array.new(8)}
-        @null_piece = NullPiece
-        @piece = Piece.new()
+        # @rows = Array.new(8) {Array.new(8)}
+        # @null_piece = NullPiece.instance
+        
+        # p black= Piece.new(:Black, [0,0])
+        @piece = Piece.new(:Black, [0,0])
     end
 
     def [](pos)
@@ -22,12 +25,14 @@ class Board
     end
 
     def move_piece(start_pos, end_pos)
-        if !valid_pos(end_pos)
+        if !valid_pos?(end_pos)
             raise "Ending position is invalid!"
         end
         if @rows[start_pos] != @piece
             raise "There's nothing there!"
         end
+        @rows[end_pos] = @piece
+        puts @rows
     end
 
     def valid_pos?(pos)

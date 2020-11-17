@@ -1,9 +1,9 @@
 
 class Piece
     attr_reader :color, :board, :pos
-    def initialize(symbol, board, array)
+    def initialize(symbol, array)
         @color = symbol
-        @board = Board.create_board
+        # @board = Board.create_board
         @pos = array
     end
 
