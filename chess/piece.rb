@@ -1,34 +1,35 @@
-
+require_relative "board"
 class Piece
     attr_reader :color, :board, :pos
-    def initialize(symbol, board, array)
-        @color = symbol
-        @board = Board.create_board
+    def initialize(color, symbol, array)
+        @color = color
+        @symbol = symbol
+        # @board = Board.create_board
         @pos = array
     end
 
-    def to_s
+    # def to_s
 
-    end
+    # end
 
-    def empty?
+    # def empty?
 
-    end
+    # end
 
-    def valid_moves
+    # def valid_moves
 
-    end
+    # end
 
-    def pos=(val)
+    # def pos=(val)
 
-    end
+    # end
 
-    def Symbol
+    # def Symbol
 
-    end
+    # end
 
-    def move_into_check?(end_pos)
+    # def move_into_check?(end_pos)
 
-    end
+    # end
 
 end

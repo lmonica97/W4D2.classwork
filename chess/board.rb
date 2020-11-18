@@ -1,14 +1,15 @@
 require_relative "piece"
+require_relative "null_piece"
 class Board
-    # def self.create_board
-    #     @rows = Array.new(8) {Array.new(8)}
-    #     @null_piece = NullPiece
-    # end
-    attr_reader :board, :rows, :null_piece
-    def initialize
+    def self.create_board
         @rows = Array.new(8) {Array.new(8)}
-        @null_piece = NullPiece
-        @piece = Piece.new()
+        @null_piece = NullPiece.instance
+    end
+    attr_reader :rows, :null_piece, :piece
+    def initialize
+        # @rows = Board.create_board
+        # @null_piece = NullPiece.instance
+        @piece = Piece.new(:black, [0,0])
     end
 
     def [](pos)
@@ -27,6 +28,9 @@ class Board
         end
         if @rows[start_pos] != @piece
             raise "There's nothing there!"
+        else
+            self[end_pos] = :black
+            p @rows
         end
     end
 
