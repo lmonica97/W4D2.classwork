@@ -1,7 +1,25 @@
 # PHASE 2
 def convert_to_int(str)
-  Integer(str)
+  Integer(str) unless Integer(str).type(Integer)
+  raise ArgumentError.new("not an integer")
 end
+
+def input
+  p "enter a number:"
+  begin
+    user_input = gets.chomp
+    convert_to_int(user_input)
+  rescue ArgumentError
+    p "-1"
+    p "not an integer"
+    # raise ArgumentError.new("POOP") unless convert_to_int(user_input).type(Integer)
+    return nil 
+    retry
+  end
+  p "thank you"
+   
+end
+input
 
 # PHASE 3
 FRUITS = ["apple", "banana", "orange"]
