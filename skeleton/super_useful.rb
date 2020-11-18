@@ -19,26 +19,39 @@ def input
   p "thank you"
    
 end
-input
+# input
 
 # PHASE 3
+
 FRUITS = ["apple", "banana", "orange"]
+class Coffee < StandardError 
+end
 
 def reaction(maybe_fruit)
-  if FRUITS.include? maybe_fruit
+  if FRUITS.include?(maybe_fruit)
     puts "OMG, thanks so much for the #{maybe_fruit}!"
+  elsif maybe_fruit == "coffee"
+    raise Coffee
   else 
-    raise StandardError 
+    raise "WRONG FRUIT"
   end 
 end
 
 def feed_me_a_fruit
+  begin
   puts "Hello, I am a friendly monster. :)"
 
   puts "Feed me a fruit! (Enter the name of a fruit:)"
   maybe_fruit = gets.chomp
   reaction(maybe_fruit) 
+  rescue Coffee
+    puts "Yum, give me fruit now :D"
+  retry
+  end
+
 end  
+
+feed_me_a_fruit
 
 # PHASE 4
 class BestFriend
