@@ -4,6 +4,7 @@ require "singleton"
 class NullPiece < Piece
     include Singleton
     def initialize
-        super(color, symbol)
+        
+        # super(color) #remember to add back symbol
     end
 end

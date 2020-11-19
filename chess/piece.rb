@@ -1,9 +1,8 @@
-require_relative "board"
 class Piece
-    attr_reader :color, :board, :pos
-    def initialize(color, symbol, array)
+    attr_reader :color, :board, :pos, :symbol
+    def initialize(color, array)
         @color = color
-        @symbol = symbol
+        #@symbol = symbol
         # @board = Board.create_board
         @pos = array
     end
